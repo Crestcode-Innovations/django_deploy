@@ -1,18 +1,14 @@
 {
-    "builds": [
-        {
-            "src:": "newgreensinn/wsgi.py",
-            "use": "@vercel/python",
-            "config": {
-                "maxLambdaSize": "15mb",
-                "runtime": "python3.9"
-            }
-        }
-    ],
+    "version": 2,
+    "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
+    "outputDirectory": ".",
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "newgreensinn/wsgi.py"
+            "dest": "backend/wsgi.py"
         }
-    ]
+    ],
+    "projectSettings": {
+        "rootDirectory": "backend"
+    }
 }
